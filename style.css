@@ -66,3 +66,28 @@ img{
 	left: 0;
 	transform: scaleX(-1);
 }
+
+.donate{
+	position: absolute;
+	margin: 0 auto;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%);
+}
+.donate-block{
+	border: 1px solid white;
+	width: 500px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+.donate-block img{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border-radius: 25%;
+}
+.donate-button{
+	width: 500px;
+	font-size: 30px;
+}

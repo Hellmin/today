@@ -1,6 +1,3 @@
-const [job, color, gif] = varMaker(workdays);
-buildApp(job, color, gif);
-
 function varMaker(array, mod = 0){
 	let job = 'Не работает!';
 	let color = 'green';
@@ -22,8 +19,10 @@ function varMaker(array, mod = 0){
 	return [job, color, gif];
 }
 
-function buildApp(job, color, gif, hidden = true, text='ХЕЛЬ СЕГОДНЯ...'){
+function buildApp(job, color, gif, hidden = true, today = true){
 	const isHidden = hidden ? 'hidden ' : '';
+	const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
+	const tommorowText = today ? 'А ЗАВТРА???' : 'А СЕГОДНЯ???';
 
 	//блок с датой
 	const dateBlock = createElement('div', '', {
@@ -67,7 +66,8 @@ function buildApp(job, color, gif, hidden = true, text='ХЕЛЬ СЕГОДНЯ.
 	const tommorowBlock = createElement('div','',{
 		'class' : isHidden + 'wrapper bot-block'
 	})
-	tommorowBlock.innerHTML = "<a href='#' class='tommorow'><h2>А ЗАВТРА???</h2></a>"
+	tommorowBlock.innerHTML = "<h2><a href='#' class='tommorow'>" +
+	 tommorowText + "</a></h2>"
 
 	//конструктор
 	const app = document.querySelector('#app');
@@ -77,14 +77,17 @@ function buildApp(job, color, gif, hidden = true, text='ХЕЛЬ СЕГОДНЯ.
 	app.append(resultBlock);
 	app.append(secondGIF);
 	app.append(tommorowBlock);
-}
 
-//функция для создания блоков
-function createElement(tagName,content,attributes){
-	const newElement = document.createElement(tagName);
-	newElement.textContent = content;
-	for (let id in attributes){
-			newElement.setAttribute(id,attributes[id])
-	}
-	return newElement;
+	const tommorow = document.querySelector('.tommorow');
+
+	tommorow.addEventListener('click', ()=>{
+		console.log('event');
+		app.innerHTML = '';
+		const dayMod = today ? 1 : 0;
+		const dayOpt = today ? false : true;
+		const [job, color, gif] = varMaker(workdays, dayMod);
+		buildApp(job, color, gif, false, dayOpt);
+		const link = document.querySelector('.link');
+		link.classList.toggle('hidden');
+	})
 }
