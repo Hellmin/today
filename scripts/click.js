@@ -17,7 +17,7 @@ const tommorow = document.querySelector('.tommorow');
 
 tommorow.addEventListener('click', ()=>{
 	app.innerHTML = '';
-	const [job, color, gif] = varMaker(workdays, -1);
+	const [job, color, gif] = varMaker(workdays, 1);
 	buildApp(job, color, gif, false, 'А ЗАВТРА ХЕЛЬ...');
 	const link = document.querySelector('.link');
 	const tommorowBlock = document.querySelector('.bot-block');
