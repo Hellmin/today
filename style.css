@@ -1,0 +1,67 @@
+*{
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+}
+.wrapper{
+	margin: 0 auto;
+	max-width: 1024px;
+}
+h1{
+	text-transform: uppercase;
+}
+.red h1{
+	color: red;
+}
+
+.green h1{
+	color: green;
+}
+
+.blue h1{
+	color: blue;
+}
+
+.hidden{
+	display: none;
+}
+
+.date-block{
+	padding: 30px 0 0;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.top-block{
+	padding: 120px 0 0;
+	text-align: center;
+}
+
+.result-block{
+	text-align: center;
+	font-size: 50px;
+}
+
+.gif-block{
+	position: relative;
+	margin: 0 auto;
+	max-width: 600px;
+	display: flex;
+	justify-content: space-between;
+}
+.gif-block.hidden{
+	display:none;
+}
+
+img{
+	position: absolute;
+	right: 0;
+	width: 120px;
+	height: 120px;
+}
+.gif-block img:first-child{
+	left: 0;
+	transform: scaleX(-1);
+}
