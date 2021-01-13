@@ -34,7 +34,8 @@ h1{
 	font-weight: bold;
 }
 
-.top-block{
+.top-block,
+.bot-block{
 	padding: 120px 0 0;
 	text-align: center;
 }
