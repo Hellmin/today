@@ -4,7 +4,12 @@ function varMaker(array, mod = 0){
 	let gif = 'good';
 	const today = new Date().getDate();
 	for (workday of array){
-		if (today + mod == workday) {
+		if (workday == 0) {
+			job = 'ЗАБУДЬ О ХЕЛЕ';
+			color = 'WHITE';
+			gif = 'dead';
+			break;
+		} else if (today + mod == workday) {
 			job = 'Работает!';
 			color = 'red';
 			gif = 'bad';
@@ -14,14 +19,17 @@ function varMaker(array, mod = 0){
 			color = 'blue';
 			gif = 'okay';
 			break;
-		}
+		} 
 	}
 	return [job, color, gif];
 }
 
 function buildApp(job, color, gif, hidden = true, today = true){
 	const isHidden = hidden ? 'hidden ' : '';
-	const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
+	// на обычные смены
+	// const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
+	// на случай беды
+	const text = today ? '' : '';
 	const tommorowText = today ? 'А ЗАВТРА???' : 'А СЕГОДНЯ???';
 
 	//блок с датой
