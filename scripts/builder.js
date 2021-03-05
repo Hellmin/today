@@ -2,24 +2,26 @@ function varMaker(array, mod = 0){
 	let job = 'Не работает!';
 	let color = 'green';
 	let gif = 'good';
-	const today = new Date().getDate();
+	const today = new Date().getDate() + mod;
 	for (workday of array){
+		console.log('workday=' + workday + '; today=' + today);
 		if (workday == 0) {
 			job = 'ЗАБУДЬ О ХЕЛЕ';
 			color = 'WHITE';
 			gif = 'dead';
 			break;
-		} else if (today + mod == workday) {
+		} else if (today == workday) {
 			job = 'Работает!';
 			color = 'red';
 			gif = 'bad';
 			break;
-		} else if (today + mod == ++workday) {
-			job = 'Приходит со смены';
-			color = 'blue';
-			gif = 'okay';
-			break;
 		} 
+		// else if (today + 1 == workday) {
+		// 	job = 'Приходит со смены';
+		// 	color = 'blue';
+		// 	gif = 'okay';
+		// 	break;
+		// } 
 	}
 	return [job, color, gif];
 }
@@ -27,9 +29,9 @@ function varMaker(array, mod = 0){
 function buildApp(job, color, gif, hidden = true, today = true){
 	const isHidden = hidden ? 'hidden ' : '';
 	// на обычные смены
-	// const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
+	const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
 	// на случай беды
-	const text = today ? '' : '';
+	// const text = today ? '' : '';
 	const tommorowText = today ? 'А ЗАВТРА???' : 'А СЕГОДНЯ???';
 
 	//блок с датой
