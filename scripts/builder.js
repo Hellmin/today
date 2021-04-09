@@ -29,9 +29,9 @@ function varMaker(array, mod = 0){
 function buildApp(job, color, gif, hidden = true, today = true){
 	const isHidden = hidden ? 'hidden ' : '';
 	// на обычные смены
-	const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
+	// const text = today ? 'ХЕЛЬ СЕГОДНЯ' : 'А ЗАВТРА ХЕЛЬ...';
 	// на случай беды
-	// const text = today ? '' : '';
+	const text = today ? '' : '';
 	const tommorowText = today ? 'А ЗАВТРА???' : 'А СЕГОДНЯ???';
 
 	//блок с датой
